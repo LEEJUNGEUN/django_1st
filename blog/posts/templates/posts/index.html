@@ -1,3 +1,5 @@
+{% load static from static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,14 +19,14 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
   <!-- css 가져오기 -->
-  <link rel="stylesheet" href="index.css">
-  <title>타이틀을 입력</title>
+  <link rel="stylesheet" href="{% static 'posts/css/index.css '%}">
+  <title>동으닝블로긍</title>
 </head>
 
 <body>
   <!-- 헤더 컨텐츠 -->
   <header>
-    <p>헤더를 입력</p>
+    <p>이정은 블로그</p>
   </header>
   <!-- 네비게이션 바 부트스트랩 -->
   <nav class="navbar navbar-expand-lg navbar-light">
@@ -67,11 +69,11 @@
     <aside>
       <div class="button">◀</div>
       <div class="profile"></div>
-      <div class="user-items">이름</div>
-      <div class="user-items">깃허브 계정</div>
-      <div class="user-items">멋사 계정</div>
-      <div class="user-items">배우고 있는 것들</div>
-      <div class="user-items">이력</div>
+      <div class="user-items">이정은</div>
+      <div class="user-items">LEEJUNGEUN.github.io</div>
+      <div class="user-items">wwjddms2@likelion.org</div>
+      <div class="user-items">이력서 쓰는 기분이라 쓰지 않겠음.</div>
+      <div class="user-items">멋사 8기 운영진</div>
     </aside>
     <!-- 섹터 컨텐츠 -->
     <section>
@@ -80,14 +82,15 @@
           <div>
             <div class="title">
               <div id="title-indent"></div>
-              제목을 입력해주세요.
+              {{post.title}}
             </div>
             <div class="date-wrapper">
-              <div>updated at: 2020-05-24 4:48</div>
-              <div>created at: 2020-05-24 4:48</div>
+              <div>updated at: {{post.updated_at}}</div>
+              <div>created at: {{post.created_at}}</div>
             </div>
             <div class="divider"></div>
-            <div class="content">본문 내용을 입력해주세요. </div>
+            <img style="width:60%; margin: auto; margin-top: 5%; "src="{{post.img.url}}" />
+            <div class="content">{{post.body}}</div>
           </div>
         </div>
       </div>
